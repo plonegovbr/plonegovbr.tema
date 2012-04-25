@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_skins" default_skin="foo_tema">
+ <object name="foo_tema_images"
+    meta_type="Filesystem Directory View"
+    directory="plonegovbr.tema:skins/images"/>
+ <object name="foo_tema_templates"
+    meta_type="Filesystem Directory View"
+    directory="plonegovbr.tema:skins/templates"/>
+ <object name="foo_tema_styles"
+    meta_type="Filesystem Directory View"
+    directory="plonegovbr.tema:skins/styles"/>
+
+ <skin-path name="foo_tema" based-on="Sunburst Theme">
+  <layer name="foo_tema_images" insert-before="*"/>
+  <layer name="foo_tema_templates" insert-before="*"/>
+  <layer name="foo_tema_styles" insert-before="*"/>
+ </skin-path>
+</object>

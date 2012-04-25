@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <theme href="index.html" />
+        
+    <rules css:if-content="#visual-portal-wrapper">
+    
+        <copy css:content="html" css:theme="html" attributes="lang dir" />
+        <before content="/html/head/base"   theme="/html/head" />   
+        <before  content="/html/head/meta"   theme="/html/head" />
+        <before  content='/html/head/style'  theme='/html/head' />
+        <before  content='/html/head/script' theme='/html/head' />     
+        <before  content="/html/head/link"   theme="/html/head" />
+
+        <!-- HEAD: title -->
+        <replace theme="/html/head/title" content="/html/head/title" />
+        <drop content="/html/head/meta[@name='viewport']" />
+        <drop content="/html/head/link[@rel='shortcut icon']" />
+        <drop content="/html/head/link[@rel='apple-touch-icon']" />
+
+        <!--Content-->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+    	<copy attributes="role" css:content="content" css:theme="contentspace" />
+        <replace content='//*[@id="portal-columns"]' theme='//*[@id="content"]' />
+    
+        <!--Viewlets-->
+        <replace content='//*[@id="portal-personaltools"]' theme='//*[@id="user"]' />  
+        <copy attributes="href title" css:content="#portal-logo" css:theme="#logo a" />
+        
+        <replace css:content="#portal-header p.hiddenStructure" css:theme="#accessibility" />
+    
+    
+        <drop css:content=".searchSection" />
+        <replace css:content="#portal-searchbox" css:theme="#search" />
+        <replace css:content="#portal-globalnav li" css:theme-children="#nav ul" />
+        <replace css:content-children="#portal-footer" css:theme="#footer-info" />   
+        <replace css:content="#portal-siteactions" css:theme-children="#siteactions" />  
+    
+
+        <!--Portlets-->
+        <!-- Control Panel -->
+        <after css:content="#visual-portal-wrapper .row:last-child script" css:theme="#wrapper" />
+    </rules>
+    
+</rules>

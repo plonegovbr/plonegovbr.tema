@@ -1,0 +1,6 @@
+Credits
+-------
+
+Development of this package was sponsored by `PloneGov.Br
+<http://www.plone.org.br/gov>`_.
+

@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    i18n_domain="plonegovbr.tema">
+
+ <!-- Theme Layer -->
+
+  <interface
+      interface="..interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="foo_tema"
+  />
+
+ <!-- Viewlets -->
+
+  <browser:viewlet
+     name="plone.footer"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+     class=".viewlets.FooterViewlet"
+     layer="..interfaces.IThemeSpecific"
+     permission="zope.Public"
+   />
+
+  <browser:viewlet
+     name="plone.logo"
+     for="*"
+     manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+     class=".viewlets.LogoViewlet"
+     layer="..interfaces.IThemeSpecific"
+     permission="zope.Public"
+   />
+
+</configure>
